@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #E9ECF4;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+hr{
+    /* border: 1px solid blue;
+    margin: 10px 20px;
+    padding: 20px 10px; */
+    background: #000;
+    margin: 10px auto;
+    /* padding: px; */
+}
+
+li{
+    list-style: none;
+}
+
+/* FIN etiquetas solas */
+
+
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    /* seperamos en 3 filas y columnas*/
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+
+    grid-template-areas: "header header header"
+                         "contenido contenido sidebar"
+                         "widget-0 widget-0 sidebar"
+                         "seccion-1 seccion-1 seccion-1"
+                         "widget-1 widget-2 widget-3"
+                         "widget-4 widget-2 widget-3"
+                         "footer footer footer";
+}
+
+
+/* accedemos a las clases para que cada una tenga su cuadro blanco */
+.contenedor > div,
+.contenedor  .header,
+.contenedor  .contenido,
+.contenedor  .sidebar,
+.contenedor  .footer{
+    background: #fff;
+    padding: 20px; /* ancho de arriba abajo de los widget*/
+    border-radius: 4px;
+}
+
+.contenedor .header{
+    background: #12203E;
+    color: #fff;
+    grid-area: header;
+
+}
+
+/* le asignamos 2 filas */
+.contenedor .contenido{
+    grid-area: contenido;
+    /* grid-column: span 2; */
+}
+
+
+/* SIDEBAR */
+
+/* le asignamos la fila desde la 3 a 4 */
+.contenedor .sidebar{
+    grid-column: 3/4;
+    background: #fAA43D;
+   
+    /* tamaño minimo */
+    min-height: 100px;
+    grid-area: sidebar;
+}
+
+.sidebar-contacto{
+    color: #fff;
+     margin: 20px;
+}
+.yo{
+   
+    display:block;
+    margin:auto;
+    padding: 0 0 20px 0;
+   
+    /* marco */
+    padding:8px;
+    background-color: #f5f5f5;
+    width: 200px;
+
+}
+
+.contenedor .sidebar-titulo{
+    color: #E9ECF4;
+    /* convinacion de sentrado para lo vertical y lo horizontal con flexbox */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* FIN SIDEBAR */
+
+/* seccion 1 */
+.seccion-1{
+    background: #12203E;
+    color: #fff;
+    grid-area: seccion-1;
+    padding: 20px; /* ancho de arriba abajo de los widget*/
+    border-radius: 4px;
+    text-align: center;
+}
+/* FIN SECCION 1 */
+
+/* INICIO secciones widget */
+/* .widget-0 */
+.contenedor .widget-0{
+    background: #ffffff;
+    color: #000;
+    height: 100px;
+}
+.contenedor .widget-0{
+    grid-area: widget-0;
+ }
+
+/* FIN 0 */
+.contenedor .widget-1{
+   grid-area: widget-1;
+}
+/* .widget-1 */
+.contenedor .widget-1{
+    background: #d340d3;
+    color: #fff;
+    height: 100px;
+    
+}
+.contenedor .widget-1{
+   grid-area: widget-1;
+}
+.widget-1-titulo{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 10px 0px;
+ }
+ .widget-1-listas{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 10px 0px;
+ }
+/* FIN .widget-1 */
+
+/* Inicio .widget-2 */
+.contenedor .widget-2{
+    background: #6aa0cc;
+    color: #fff;
+    height: 100px;
+    
+}
+.contenedor .widget-2{
+    grid-area: widget-2;
+ }
+/* fin widgeth 2 */
+
+/* INICIO 3 */
+.contenedor .widget-3{
+    background: #797979;
+    color: #fff;
+    height: 100px;
+    
+}
+.contenedor .widget-3{
+   grid-area: widget-3;
+}
+/* FIN 3 */
+
+/* INICIO 4 */
+.contenedor .widget-4{
+    background: #db5e24;
+    color: #fff;
+    height: auto;
+}
+.contenedor .widget-4{
+    grid-area: widget-4;
+ }
+
+/* FIN 4 */
+/* FIN WIDGETH */
+
+
+ /* footer */
+.contenedor .footer{
+    background: #12203E;
+    color: #fff;
+    grid-area: footer;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+}
+.redes li{
+    margin: 0 .75rem;
+   
+}
+
+.copyright{
+    text-align: center;
+    font-size: 13px;
+    color: #ddd;
+}
+/* FIN footer */
+
+
+/* Responsive */
+@media screen and (max-width: 768px){
+	.contenedor {
+		grid-template-areas: "header header header"
+						 "contenido contenido contenido"
+                         "sidebar sidebar sidebar"
+                         "widget-0 widget-0 widget-0"
+                         "seccion-1 seccion-1 seccion-1"
+                         "widget-1 widget-1 widget-1"
+                         "widget-2 widget-2 widget-2"
+                         "widget-3 widget-3 widget-3"
+                         "widget-4 widget-4 widget-4"
+						 "footer footer footer";
+    }
+ 
+    .yo{
+        width: 50%;
+        text-align: center;
+    }
+}
